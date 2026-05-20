@@ -29,10 +29,10 @@
     "drush.complete.sh"
   ],
   "require": {
-    "php": ">=5.4.5",
+    "php": "<8",
     "psr/log": "~1.0",
     "psy/psysh": "~0.6",
-    "symfony/yaml": "~2.3|~3.0",
+    "symfony/yaml": "~v5.4",
     "symfony/var-dumper": "~2.7|~3.0",
     "pear/console_table": "~1.3.0"
   },
