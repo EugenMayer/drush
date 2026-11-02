@@ -279,7 +279,7 @@ function drush_config_set($config_name, $key = NULL, $data = NULL) {
   switch (drush_get_option('format', 'string')) {
     case 'yaml':
       $parser = new Parser();
-      $data = $parser->parse($data, TRUE);
+      $data = $parser->parse($data, \Symfony\Component\Yaml\Yaml::PARSE_EXCEPTION_ON_INVALID_TYPE);
   }
 
   if (is_array($data) && drush_confirm(dt('Do you want to update or set multiple keys on !name config.', array('!name' => $config_name)))) {
