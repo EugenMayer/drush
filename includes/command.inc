@@ -798,16 +798,16 @@ function drush_parse_args() {
       $command_args[] = $opt;
     }
     // Is the arg an option (starting with '-')?
-    if (!empty($opt) && $opt{0} == "-" && strlen($opt) != 1) {
+    if (!empty($opt) && $opt[0] == "-" && strlen($opt) != 1) {
       // Do we have multiple options behind one '-'?
-      if (strlen($opt) > 2 && $opt{1} != "-") {
+      if (strlen($opt) > 2 && $opt[1] != "-") {
         // Each char becomes a key of its own.
         for ($j = 1; $j < strlen($opt); $j++) {
           $options[substr($opt, $j, 1)] = TRUE;
         }
       }
       // Do we have a longopt (starting with '--')?
-      elseif ($opt{1} == "-") {
+      elseif ($opt[1] == "-") {
         if ($pos = strpos($opt, '=')) {
           $options[substr($opt, 2, $pos - 2)] = substr($opt, $pos + 1);
         }

@@ -165,7 +165,7 @@ function drush_history_path_cli() {
       $site_suffix = $site['#name'];
     }
     else {
-      $site_suffix = md5(DRUPAL_ROOT);
+      $site_suffix = md5(defined('DRUPAL_ROOT') ? DRUPAL_ROOT : 'DRUPAL_ROOT');
     }
 
     $file_name = "drupal-site-$site_suffix";

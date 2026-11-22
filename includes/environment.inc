@@ -16,7 +16,7 @@ use Drush\Log\LogLevel;
  * Log PHP errors to the Drush log. This is in effect until Drupal's error
  * handler takes over.
  */
-function drush_error_handler($errno, $message, $filename, $line, $context) {
+function drush_error_handler($errno, $message, $filename, $line, $context = NULL) {
   // E_DEPRECATED was added in PHP 5.3. Drupal 6 will not fix all the
   // deprecated errors, but suppresses them. So we suppress them as well.
   if (defined('E_DEPRECATED')) {

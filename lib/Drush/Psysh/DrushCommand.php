@@ -64,7 +64,7 @@ class DrushCommand extends BaseCommand {
   /**
    * {@inheritdoc}
    */
-  protected function configure() {
+  protected function configure(): void {
     $this
       ->setName($this->config['command'])
       ->setAliases($this->buildAliasesFromConfig())
@@ -76,7 +76,7 @@ class DrushCommand extends BaseCommand {
   /**
    * {@inheritdoc}
    */
-  protected function execute(InputInterface $input, OutputInterface $output) {
+  protected function execute(InputInterface $input, OutputInterface $output): int {
     $args = $input->getArguments();
     $first = array_shift($args);
 
@@ -109,6 +109,8 @@ class DrushCommand extends BaseCommand {
     else {
       $output->page(drush_backend_get_result());
     }
+
+    return 0;
   }
 
   /**

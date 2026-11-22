@@ -38,7 +38,7 @@ class DrushHelpCommand extends BaseCommand {
   /**
    * {@inheritdoc}
    */
-  protected function configure() {
+  protected function configure(): void {
     $this
       ->setName('help')
       ->setAliases(['?'])
@@ -60,7 +60,7 @@ class DrushHelpCommand extends BaseCommand {
   /**
    * {@inheritdoc}
    */
-  protected function execute(InputInterface $input, OutputInterface $output) {
+  protected function execute(InputInterface $input, OutputInterface $output): int {
     if ($this->command !== NULL) {
       // Help for an individual command.
       $output->page($this->command->asText());
@@ -121,6 +121,8 @@ class DrushHelpCommand extends BaseCommand {
 
       $output->page($messages);
     }
+
+    return 0;
   }
 
 }
